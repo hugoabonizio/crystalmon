@@ -1,3 +1,5 @@
+require "colorize"
+
 module Crystalmon
   class Runner
     def initialize(command)
@@ -5,7 +7,14 @@ module Crystalmon
       Config.target_port = process_port
       env = {"PORT" => process_port.to_s}
       @process = ::Process.new(command, env: env, shell: true, error: true)
-      puts "Running \"#{command}\" on port #{process_port}..."
+      puts "Running \"#{command}\" on port #{process_port}...".colorize(:green)
+
+      spawn do
+        watcher = Watcher.new
+        watcher.listen do
+          puts "CHANGED"
+        end
+      end
     end
 
     private def random_port
