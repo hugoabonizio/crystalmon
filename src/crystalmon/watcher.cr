@@ -5,7 +5,7 @@ module Crystalmon
   class Watcher
     @files = Hash(String, String).new { "" }
 
-    def initialize(pattern = "**/*.cr")
+    def initialize(pattern = "**/*.{cr,ecr}")
       Dir.glob(pattern) do |file|
         @files[file] = timestamp(file)
       end
