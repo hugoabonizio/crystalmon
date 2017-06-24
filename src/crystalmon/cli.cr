@@ -15,7 +15,7 @@ module Crystalmon
       target = ARGV[0]?
 
       spawn do
-        Runner.new("#{command} #{target}")
+        Runner.new(command, target)
       end
 
       proxy = Proxy.new(5000, port)
