@@ -8,6 +8,6 @@ targets:
   crystalmon:
     main: src/crystalmon.cr
 
-crystal: 0.22.0
+crystal: 0.24.1
 
 license: MIT

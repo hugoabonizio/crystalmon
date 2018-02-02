@@ -20,10 +20,9 @@ module Crystalmon
       Config.target_port = process_port
       @env = {"PORT" => process_port.to_s}
       spawn do
-        @process = ::Process.new(@command, @arg, env: @env, output: true, error: true)
+        @process = ::Process.new(@command, args: @arg, env: @env, output: STDOUT, error: STDOUT)
       end
 
-      puts @process.inspect
       puts "Running \"#{command}\" on port #{process_port}...".colorize(:green)
 
       spawn do
@@ -56,7 +55,7 @@ HEREDOC
       rescue e
         puts e.inspect
       ensure
-        @process = ::Process.new(@command, @arg, env: @env, output: true, error: true)
+        @process = ::Process.new(@command, args: @arg, env: @env, output: STDOUT, error: STDOUT)
       end
     end
 

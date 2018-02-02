@@ -9,7 +9,7 @@ module Crystalmon
       OptionParser.parse! do |parser|
         parser.banner = "Usage: crystalmon [file]"
         parser.on("-p PORT", "--port PORT", "Port to foward") { |p| port = p.to_i }
-        parser.on("-c COMMAND", "--port COMMAND", "Command to run") { |c| command = c }
+        parser.on("-c COMMAND", "--command COMMAND", "Command to run") { |c| command = c }
       end
 
       target = ARGV[0]?

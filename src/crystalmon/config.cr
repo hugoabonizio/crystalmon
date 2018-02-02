@@ -1,6 +1,6 @@
 module Crystalmon
   class Config
-    @@port = 5000
+    @@port = "5000"
     @@target_port = 0
     @@command = "crystal"
 
